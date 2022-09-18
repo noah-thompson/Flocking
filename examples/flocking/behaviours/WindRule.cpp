@@ -6,7 +6,12 @@
 Vector2 WindRule::computeForce(const std::vector<Boid*>& neighborhood, Boid* boid) {
     // todo: add a wind force here
     // hint: use the windAngle variable
-    return Vector2::zero();
+    Vector2 windForce;
+    windForce.x = cos(windAngle);
+    windForce.y = sin(windAngle);
+
+
+    return windForce / 4;
 }
 
 bool WindRule::drawImguiRuleExtra() {
