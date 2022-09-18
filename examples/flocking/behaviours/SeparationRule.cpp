@@ -12,11 +12,14 @@ Vector2 SeparationRule::computeForce(const std::vector<Boid*>& neighborhood, Boi
     if (!neighborhood.empty()) {
         Vector2 position = boid->transform.position;
         int countCloseFlockmates = 0;
-
+        for (auto bird : neighborhood)
+        {
+            separatingForce += bird->getPosition() - boid->getPosition();
+        }
 
     }
 
-    separatingForce = Vector2::normalized(separatingForce);
+    separatingForce = -1 * Vector2::normalized(separatingForce);
 
     return separatingForce;
 }
