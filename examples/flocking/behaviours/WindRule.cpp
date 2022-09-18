@@ -11,7 +11,7 @@ Vector2 WindRule::computeForce(const std::vector<Boid*>& neighborhood, Boid* boi
     windForce.y = sin(windAngle);
 
 
-    return windForce / 4;
+    return Vector2::normalized(windForce);
 }
 
 bool WindRule::drawImguiRuleExtra() {
